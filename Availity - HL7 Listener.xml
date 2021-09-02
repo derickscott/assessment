@@ -1,0 +1,2446 @@
+<channel version="3.11.0">
+  <id>89b3652c-5446-4a56-b14a-ad6603a98186</id>
+  <nextMetaDataId>3</nextMetaDataId>
+  <name>Availity - HL7 Listener</name>
+  <description></description>
+  <revision>44</revision>
+  <sourceConnector version="3.11.0">
+    <metaDataId>0</metaDataId>
+    <name>sourceConnector</name>
+    <properties class="com.mirth.connect.connectors.tcp.TcpReceiverProperties" version="3.11.0">
+      <pluginProperties/>
+      <listenerConnectorProperties version="3.11.0">
+        <host>0.0.0.0</host>
+        <port>10301</port>
+      </listenerConnectorProperties>
+      <sourceConnectorProperties version="3.11.0">
+        <responseVariable>Postprocessor</responseVariable>
+        <respondAfterProcessing>true</respondAfterProcessing>
+        <processBatch>false</processBatch>
+        <firstResponse>true</firstResponse>
+        <processingThreads>1</processingThreads>
+        <resourceIds class="linked-hash-map">
+          <entry>
+            <string>Default Resource</string>
+            <string>[Default Resource]</string>
+          </entry>
+        </resourceIds>
+        <queueBufferSize>1000</queueBufferSize>
+      </sourceConnectorProperties>
+      <transmissionModeProperties class="com.mirth.connect.plugins.mllpmode.MLLPModeProperties">
+        <pluginPointName>MLLP</pluginPointName>
+        <startOfMessageBytes>0B</startOfMessageBytes>
+        <endOfMessageBytes>1C0D</endOfMessageBytes>
+        <useMLLPv2>false</useMLLPv2>
+        <ackBytes>06</ackBytes>
+        <nackBytes>15</nackBytes>
+        <maxRetries>2</maxRetries>
+      </transmissionModeProperties>
+      <serverMode>true</serverMode>
+      <remoteAddress></remoteAddress>
+      <remotePort></remotePort>
+      <overrideLocalBinding>false</overrideLocalBinding>
+      <reconnectInterval>5000</reconnectInterval>
+      <receiveTimeout>10</receiveTimeout>
+      <bufferSize>65536</bufferSize>
+      <maxConnections>10</maxConnections>
+      <keepConnectionOpen>true</keepConnectionOpen>
+      <dataTypeBinary>false</dataTypeBinary>
+      <charsetEncoding>DEFAULT_ENCODING</charsetEncoding>
+      <respondOnNewConnection>0</respondOnNewConnection>
+      <responseAddress></responseAddress>
+      <responsePort></responsePort>
+    </properties>
+    <transformer version="3.11.0">
+      <elements/>
+      <inboundTemplate encoding="base64"></inboundTemplate>
+      <outboundTemplate encoding="base64"></outboundTemplate>
+      <inboundDataType>HL7V2</inboundDataType>
+      <outboundDataType>HL7V2</outboundDataType>
+      <inboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+        <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+          <handleRepetitions>true</handleRepetitions>
+          <handleSubcomponents>true</handleSubcomponents>
+          <useStrictParser>false</useStrictParser>
+          <useStrictValidation>false</useStrictValidation>
+          <stripNamespaces>true</stripNamespaces>
+          <segmentDelimiter>\r</segmentDelimiter>
+          <convertLineBreaks>true</convertLineBreaks>
+        </serializationProperties>
+        <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+          <useStrictParser>false</useStrictParser>
+          <useStrictValidation>false</useStrictValidation>
+          <segmentDelimiter>\r</segmentDelimiter>
+        </deserializationProperties>
+        <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+          <splitType>MSH_Segment</splitType>
+          <batchScript></batchScript>
+        </batchProperties>
+        <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+          <segmentDelimiter>\r</segmentDelimiter>
+          <successfulACKCode>AA</successfulACKCode>
+          <successfulACKMessage></successfulACKMessage>
+          <errorACKCode>AE</errorACKCode>
+          <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+          <rejectedACKCode>AR</rejectedACKCode>
+          <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+          <msh15ACKAccept>false</msh15ACKAccept>
+          <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+        </responseGenerationProperties>
+        <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+          <successfulACKCode>AA,CA</successfulACKCode>
+          <errorACKCode>AE,CE</errorACKCode>
+          <rejectedACKCode>AR,CR</rejectedACKCode>
+          <validateMessageControlId>true</validateMessageControlId>
+          <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+          <originalIdMapVariable></originalIdMapVariable>
+        </responseValidationProperties>
+      </inboundProperties>
+      <outboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+        <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+          <handleRepetitions>true</handleRepetitions>
+          <handleSubcomponents>true</handleSubcomponents>
+          <useStrictParser>false</useStrictParser>
+          <useStrictValidation>false</useStrictValidation>
+          <stripNamespaces>true</stripNamespaces>
+          <segmentDelimiter>\r</segmentDelimiter>
+          <convertLineBreaks>true</convertLineBreaks>
+        </serializationProperties>
+        <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+          <useStrictParser>false</useStrictParser>
+          <useStrictValidation>false</useStrictValidation>
+          <segmentDelimiter>\r</segmentDelimiter>
+        </deserializationProperties>
+        <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+          <splitType>MSH_Segment</splitType>
+          <batchScript></batchScript>
+        </batchProperties>
+        <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+          <segmentDelimiter>\r</segmentDelimiter>
+          <successfulACKCode>AA</successfulACKCode>
+          <successfulACKMessage></successfulACKMessage>
+          <errorACKCode>AE</errorACKCode>
+          <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+          <rejectedACKCode>AR</rejectedACKCode>
+          <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+          <msh15ACKAccept>false</msh15ACKAccept>
+          <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+        </responseGenerationProperties>
+        <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+          <successfulACKCode>AA,CA</successfulACKCode>
+          <errorACKCode>AE,CE</errorACKCode>
+          <rejectedACKCode>AR,CR</rejectedACKCode>
+          <validateMessageControlId>true</validateMessageControlId>
+          <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+          <originalIdMapVariable></originalIdMapVariable>
+        </responseValidationProperties>
+      </outboundProperties>
+    </transformer>
+    <filter version="3.11.0">
+      <elements/>
+    </filter>
+    <transportName>TCP Listener</transportName>
+    <mode>SOURCE</mode>
+    <enabled>true</enabled>
+    <waitForPrevious>true</waitForPrevious>
+  </sourceConnector>
+  <destinationConnectors>
+    <connector version="3.11.0">
+      <metaDataId>1</metaDataId>
+      <name>PDF Write</name>
+      <properties class="com.mirth.connect.connectors.doc.DocumentDispatcherProperties" version="3.11.0">
+        <pluginProperties/>
+        <destinationConnectorProperties version="3.11.0">
+          <queueEnabled>false</queueEnabled>
+          <sendFirst>false</sendFirst>
+          <retryIntervalMillis>10000</retryIntervalMillis>
+          <regenerateTemplate>false</regenerateTemplate>
+          <retryCount>0</retryCount>
+          <rotate>false</rotate>
+          <includeFilterTransformer>false</includeFilterTransformer>
+          <threadCount>1</threadCount>
+          <threadAssignmentVariable></threadAssignmentVariable>
+          <validateResponse>false</validateResponse>
+          <resourceIds class="linked-hash-map">
+            <entry>
+              <string>Default Resource</string>
+              <string>[Default Resource]</string>
+            </entry>
+          </resourceIds>
+          <queueBufferSize>1000</queueBufferSize>
+          <reattachAttachments>true</reattachAttachments>
+        </destinationConnectorProperties>
+        <host>C:/mirth/outbox</host>
+        <outputPattern>${patientId}_${date.get(&apos;yyyyMMdd&apos;)}.pdf</outputPattern>
+        <documentType>pdf</documentType>
+        <encrypt>false</encrypt>
+        <output>FILE</output>
+        <password></password>
+        <pageWidth>8.5</pageWidth>
+        <pageHeight>11</pageHeight>
+        <pageUnit>INCHES</pageUnit>
+        <template>&lt;table style=&quot;margin: 0; border: 1px solid #000000; padding: 0;&quot;&gt;
+	&lt;tr style=&quot;background: #e6e6e6;&quot;&gt;
+		&lt;td colspan=&quot;2&quot; style=&quot;margin: 0; padding: 5px 5px 1px 5px; border-bottom: 1px solid #b5b5b5; text-align: center&quot;&gt;&lt;b&gt;Patient Demographic Report&lt;/b&gt;&lt;br&gt;&lt;b&gt;Availity Assessment&lt;/b&gt;&lt;/br&gt;&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;Patient ID:&lt;/td&gt;
+		&lt;td&gt;${patientId}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #dae5f4;&quot;&gt;
+		&lt;td&gt;First Name:&lt;/td&gt;
+		&lt;td&gt;${firstName}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;Last Name:&lt;/td&gt;
+		&lt;td&gt;${lastName}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #dae5f4;&quot;&gt;
+		&lt;td&gt;Date of Birth:&lt;/td&gt;
+		&lt;td&gt;${dateOfBirth}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;Gender:&lt;/td&gt;
+		&lt;td&gt;${gender}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #dae5f4;&quot;&gt;
+		&lt;td&gt;Race ID:&lt;/td&gt;
+		&lt;td&gt;${raceId}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;Address:&lt;/td&gt;
+		&lt;td&gt;${address}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #dae5f4;&quot;&gt;
+		&lt;td&gt;City:&lt;/td&gt;
+		&lt;td&gt;${city}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;State:&lt;/td&gt;
+		&lt;td&gt;${state}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #dae5f4;&quot;&gt;
+		&lt;td&gt;Postal Code:&lt;/td&gt;
+		&lt;td&gt;${postalCode}&lt;/td&gt;
+	&lt;/tr&gt;
+	&lt;tr style=&quot;background: #8eb7f0;&quot;&gt;
+		&lt;td&gt;Insurance Company:&lt;/td&gt;
+		&lt;td&gt;${insuranceCoName}&lt;/td&gt;
+	&lt;/tr&gt;
+#set ($isEvenRow = true)
+#set ($evenRowStyle = &quot;background: #dae5f4;&quot;)
+#set ($oddRowStyle = &quot;background: #8eb7f0;&quot;)
+#foreach ($nok in ${nkList})
+	#if ($isEvenRow)
+	&lt;tr style=&quot;$evenRowStyle&quot;&gt;
+	#else
+	&lt;tr style=&quot;$oddRowStyle&quot;&gt;
+	#end
+		&lt;td&gt;Next of Kin $foreach.count:&lt;/td&gt;
+		&lt;td&gt;$nok&lt;/td&gt;
+	&lt;/tr&gt;
+	#set ($isEvenRow = !$isEvenRow)
+#end
+&lt;/table&gt;
+</template>
+      </properties>
+      <transformer version="3.11.0">
+        <elements>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>patientId</name>
+            <sequenceNumber>0</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>patientId</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.2&apos;][&apos;PID.2.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>lastName</name>
+            <sequenceNumber>1</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>lastName</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>firstName</name>
+            <sequenceNumber>2</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>firstName</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.5&apos;][&apos;PID.5.2&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>dateOfBirth</name>
+            <sequenceNumber>3</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>dateOfBirth</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.7&apos;][&apos;PID.7.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>gender</name>
+            <sequenceNumber>4</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>gender</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.8&apos;][&apos;PID.8.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>raceId</name>
+            <sequenceNumber>5</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>raceId</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.10&apos;][&apos;PID.10.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>address</name>
+            <sequenceNumber>6</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>address</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.11&apos;][&apos;PID.11.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>city</name>
+            <sequenceNumber>7</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>city</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.11&apos;][&apos;PID.11.3&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>state</name>
+            <sequenceNumber>8</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>state</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.11&apos;][&apos;PID.11.4&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>postalCode</name>
+            <sequenceNumber>9</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>postalCode</variable>
+            <mapping>msg[&apos;PID&apos;][&apos;PID.11&apos;][&apos;PID.11.5&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.mapper.MapperStep version="3.11.0">
+            <name>insuranceCoName</name>
+            <sequenceNumber>10</sequenceNumber>
+            <enabled>true</enabled>
+            <variable>insuranceCoName</variable>
+            <mapping>msg[&apos;IN1&apos;][&apos;IN1.4&apos;][&apos;IN1.4.1&apos;].toString()</mapping>
+            <defaultValue></defaultValue>
+            <replacements/>
+            <scope>CHANNEL</scope>
+          </com.mirth.connect.plugins.mapper.MapperStep>
+          <com.mirth.connect.plugins.javascriptstep.JavaScriptStep version="3.11.0">
+            <name>nextOfKinList</name>
+            <sequenceNumber>11</sequenceNumber>
+            <enabled>true</enabled>
+            <script>var nkList = new Packages.java.util.ArrayList();
+
+for each (seg in msg..NK1) {
+
+	var name = seg[&apos;NK1.2&apos;][&apos;NK1.2.2&apos;].toString() + &quot; &quot; + seg[&apos;NK1.2&apos;][&apos;NK1.2.1&apos;].toString();
+	var relationship = seg[&apos;NK1.3&apos;][&apos;NK1.3.1&apos;].toString();
+	var phone = seg[&apos;NK1.5&apos;][&apos;NK1.5.1&apos;].toString();
+
+	var nk = name + &quot;, &quot; + relationship + &quot;, &quot; + phone;
+	nkList.add(nk);
+
+}
+channelMap.put(&apos;nkList&apos;, nkList);</script>
+          </com.mirth.connect.plugins.javascriptstep.JavaScriptStep>
+        </elements>
+        <inboundTemplate encoding="base64">TVNIfF5+XCZ8QURUU0VOREVSfEhvc3BpdGFsIEF8fHwyMDE1MDYwMTEzMjMyM3x8QURUXkEwM3wzNjYwMTMyNDQ2fFR8Mi41fDgwOTINCkVWTnxBMDN8MjAxNTA2MDExMzIzMjN8fHxtci5jZmFyDQpQSUR8fDg4MDA0MHw3NDEwMTI2MDZ8fENvbnJhZF5IZXJtZXNeXnx8MTk2NDAyMDJ8TXx8MjA1NC01fDEzIEphbWFpY2EgUGxhY2VeXkxha2UgRm9yZXN0XkNBXjkyNjMwXlVTXkh8fCg5NDkpIDU1NS0wMDQwXl5IT01FIFNPfHxFTkd8UHxPVEh8MDA0MHw3NDEtMDEtMjYwNnx8DQpQRDF8U3x8TWlsbGFyZCBGaWxsbW9yZSBNZWRpY2FsIENlbnRlcnwwMDQ3NzdeWm9pZGJlcmdeSm9obl5BXl5Eci58Tg0KTksxfDF8Q29ucmFkXkxhQmFyYmFyYXxTUE98MTIzIE9BSyBBVkVOVUVeQVBULiA0QV5JUlZJTkVeQ0FeOTI2MTJ8KDIyNSkzNTEtMzczOHwoODAyKTU2MS02NjE3DQpOSzF8MnxDb25yYWReRHdpZ2h0fENIRHwxMyBKYW1haWNhIFBsYWNlXl5MYWtlIEZvcmVzdF5DQV45MjYzMF5VU15IfA0KUFYxfHxJfFcyV15XMjUxXkF8RXx8fDE5XldJR0dVTV5TQVJBSF5efDE0XlZBTiBIT1VURU5eTUlMTEhPVVNFXl58OF5TSU1QU09OXkJBUlReXnxNRUR8fHx8M3x8IHwwOTM1NzBeS0FMRUJeVkFORVNTQV5NfEl8fEFPfDMxfHx8fHx8fHx8fHx8fHx8IiJ8fHxTSU1QU09OIENMSU5JQ3x8fHx8MjAxNTA1MjQxODMwfDIwMTUwNTI1MTE0NQ0KUFYyfHwzMXwxODMwXkVYUExBUkFUT1JZIExBUHx8fHx8MjAxNTA1MjR8fHx8IiJ8fHx8fHx8fHxWDQpHVDF8MXx8Q29ucmFkXkhlcm1lc15efENvbnJhZF5MYUJhcmJhcmF8MTMgSmFtYWljYSBQbGFjZV5eTGFrZSBGb3Jlc3ReQ0FeOTI2MzBeVVNeSHwoOTQ5KSA1NTUtMDA0MHx8MTk2NDAyMDJ8TXx8U0VMfDc0MS0wMS0yNjA2fHx8fFBsYW5ldCBFeHByZXNzfDEzODggVy4gRWxtIFN0Ll5eTmV3IFlvcmteTlleMTQ0NjcNCklOMXwxfDFIUDZ8MEYzMHxHUkVBVCBXRVNUIFBQT3x8fHx8T1BFTiBBQ0NFU1MNCg==</inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundDataType>HL7V2</inboundDataType>
+        <outboundDataType>HL7V2</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+            <handleRepetitions>true</handleRepetitions>
+            <handleSubcomponents>true</handleSubcomponents>
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <stripNamespaces>true</stripNamespaces>
+            <segmentDelimiter>\r</segmentDelimiter>
+            <convertLineBreaks>true</convertLineBreaks>
+          </serializationProperties>
+          <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <segmentDelimiter>\r</segmentDelimiter>
+          </deserializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+            <splitType>MSH_Segment</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+          <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+            <segmentDelimiter>\r</segmentDelimiter>
+            <successfulACKCode>AA</successfulACKCode>
+            <successfulACKMessage></successfulACKMessage>
+            <errorACKCode>AE</errorACKCode>
+            <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+            <rejectedACKCode>AR</rejectedACKCode>
+            <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+            <msh15ACKAccept>false</msh15ACKAccept>
+            <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+          </responseGenerationProperties>
+          <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+            <successfulACKCode>AA,CA</successfulACKCode>
+            <errorACKCode>AE,CE</errorACKCode>
+            <rejectedACKCode>AR,CR</rejectedACKCode>
+            <validateMessageControlId>true</validateMessageControlId>
+            <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+            <originalIdMapVariable></originalIdMapVariable>
+          </responseValidationProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+            <handleRepetitions>true</handleRepetitions>
+            <handleSubcomponents>true</handleSubcomponents>
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <stripNamespaces>true</stripNamespaces>
+            <segmentDelimiter>\r</segmentDelimiter>
+            <convertLineBreaks>true</convertLineBreaks>
+          </serializationProperties>
+          <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <segmentDelimiter>\r</segmentDelimiter>
+          </deserializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+            <splitType>MSH_Segment</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+          <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+            <segmentDelimiter>\r</segmentDelimiter>
+            <successfulACKCode>AA</successfulACKCode>
+            <successfulACKMessage></successfulACKMessage>
+            <errorACKCode>AE</errorACKCode>
+            <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+            <rejectedACKCode>AR</rejectedACKCode>
+            <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+            <msh15ACKAccept>false</msh15ACKAccept>
+            <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+          </responseGenerationProperties>
+          <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+            <successfulACKCode>AA,CA</successfulACKCode>
+            <errorACKCode>AE,CE</errorACKCode>
+            <rejectedACKCode>AR,CR</rejectedACKCode>
+            <validateMessageControlId>true</validateMessageControlId>
+            <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+            <originalIdMapVariable></originalIdMapVariable>
+          </responseValidationProperties>
+        </outboundProperties>
+      </transformer>
+      <responseTransformer version="3.11.0">
+        <elements/>
+        <inboundTemplate encoding="base64"></inboundTemplate>
+        <outboundTemplate encoding="base64"></outboundTemplate>
+        <inboundDataType>HL7V2</inboundDataType>
+        <outboundDataType>HL7V2</outboundDataType>
+        <inboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+            <handleRepetitions>true</handleRepetitions>
+            <handleSubcomponents>true</handleSubcomponents>
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <stripNamespaces>true</stripNamespaces>
+            <segmentDelimiter>\r</segmentDelimiter>
+            <convertLineBreaks>true</convertLineBreaks>
+          </serializationProperties>
+          <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <segmentDelimiter>\r</segmentDelimiter>
+          </deserializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+            <splitType>MSH_Segment</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+          <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+            <segmentDelimiter>\r</segmentDelimiter>
+            <successfulACKCode>AA</successfulACKCode>
+            <successfulACKMessage></successfulACKMessage>
+            <errorACKCode>AE</errorACKCode>
+            <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+            <rejectedACKCode>AR</rejectedACKCode>
+            <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+            <msh15ACKAccept>false</msh15ACKAccept>
+            <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+          </responseGenerationProperties>
+          <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+            <successfulACKCode>AA,CA</successfulACKCode>
+            <errorACKCode>AE,CE</errorACKCode>
+            <rejectedACKCode>AR,CR</rejectedACKCode>
+            <validateMessageControlId>true</validateMessageControlId>
+            <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+            <originalIdMapVariable></originalIdMapVariable>
+          </responseValidationProperties>
+        </inboundProperties>
+        <outboundProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DataTypeProperties" version="3.11.0">
+          <serializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2SerializationProperties" version="3.11.0">
+            <handleRepetitions>true</handleRepetitions>
+            <handleSubcomponents>true</handleSubcomponents>
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <stripNamespaces>true</stripNamespaces>
+            <segmentDelimiter>\r</segmentDelimiter>
+            <convertLineBreaks>true</convertLineBreaks>
+          </serializationProperties>
+          <deserializationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2DeserializationProperties" version="3.11.0">
+            <useStrictParser>false</useStrictParser>
+            <useStrictValidation>false</useStrictValidation>
+            <segmentDelimiter>\r</segmentDelimiter>
+          </deserializationProperties>
+          <batchProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2BatchProperties" version="3.11.0">
+            <splitType>MSH_Segment</splitType>
+            <batchScript></batchScript>
+          </batchProperties>
+          <responseGenerationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseGenerationProperties" version="3.11.0">
+            <segmentDelimiter>\r</segmentDelimiter>
+            <successfulACKCode>AA</successfulACKCode>
+            <successfulACKMessage></successfulACKMessage>
+            <errorACKCode>AE</errorACKCode>
+            <errorACKMessage>An Error Occurred Processing Message.</errorACKMessage>
+            <rejectedACKCode>AR</rejectedACKCode>
+            <rejectedACKMessage>Message Rejected.</rejectedACKMessage>
+            <msh15ACKAccept>false</msh15ACKAccept>
+            <dateFormat>yyyyMMddHHmmss.SSS</dateFormat>
+          </responseGenerationProperties>
+          <responseValidationProperties class="com.mirth.connect.plugins.datatypes.hl7v2.HL7v2ResponseValidationProperties" version="3.11.0">
+            <successfulACKCode>AA,CA</successfulACKCode>
+            <errorACKCode>AE,CE</errorACKCode>
+            <rejectedACKCode>AR,CR</rejectedACKCode>
+            <validateMessageControlId>true</validateMessageControlId>
+            <originalMessageControlId>Destination_Encoded</originalMessageControlId>
+            <originalIdMapVariable></originalIdMapVariable>
+          </responseValidationProperties>
+        </outboundProperties>
+      </responseTransformer>
+      <filter version="3.11.0">
+        <elements>
+          <com.mirth.connect.plugins.rulebuilder.RuleBuilderRule version="3.11.0">
+            <name>Accept message if &quot;msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.1&apos;].toString()&quot; equals &quot;ADT&quot;</name>
+            <sequenceNumber>0</sequenceNumber>
+            <enabled>true</enabled>
+            <field>msg[&apos;MSH&apos;][&apos;MSH.9&apos;][&apos;MSH.9.1&apos;].toString()</field>
+            <condition>EQUALS</condition>
+            <values>
+              <string>&quot;ADT&quot;</string>
+            </values>
+          </com.mirth.connect.plugins.rulebuilder.RuleBuilderRule>
+        </elements>
+      </filter>
+      <transportName>Document Writer</transportName>
+      <mode>DESTINATION</mode>
+      <enabled>true</enabled>
+      <waitForPrevious>true</waitForPrevious>
+    </connector>
+  </destinationConnectors>
+  <preprocessingScript>// Modify the message variable below to pre process data
+return message;</preprocessingScript>
+  <postprocessingScript>// This script executes once after a message has been processed
+// Responses returned from here will be stored as &quot;Postprocessor&quot; in the response map
+
+return &quot;Message Received. Thank you.&quot;;
+</postprocessingScript>
+  <deployScript>// This script executes once when the channel is deployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</deployScript>
+  <undeployScript>// This script executes once when the channel is undeployed
+// You only have access to the globalMap and globalChannelMap here to persist data
+return;</undeployScript>
+  <properties version="3.11.0">
+    <clearGlobalChannelMap>true</clearGlobalChannelMap>
+    <messageStorageMode>DEVELOPMENT</messageStorageMode>
+    <encryptData>false</encryptData>
+    <removeContentOnCompletion>false</removeContentOnCompletion>
+    <removeOnlyFilteredOnCompletion>false</removeOnlyFilteredOnCompletion>
+    <removeAttachmentsOnCompletion>false</removeAttachmentsOnCompletion>
+    <initialState>STARTED</initialState>
+    <storeAttachments>true</storeAttachments>
+    <metaDataColumns>
+      <metaDataColumn>
+        <name>SOURCE</name>
+        <type>STRING</type>
+        <mappingName>mirth_source</mappingName>
+      </metaDataColumn>
+      <metaDataColumn>
+        <name>TYPE</name>
+        <type>STRING</type>
+        <mappingName>mirth_type</mappingName>
+      </metaDataColumn>
+    </metaDataColumns>
+    <attachmentProperties version="3.11.0">
+      <type>None</type>
+      <properties/>
+    </attachmentProperties>
+    <resourceIds class="linked-hash-map">
+      <entry>
+        <string>Default Resource</string>
+        <string>[Default Resource]</string>
+      </entry>
+    </resourceIds>
+  </properties>
+  <exportData>
+    <metadata>
+      <enabled>true</enabled>
+      <lastModified>
+        <time>1630618339889</time>
+        <timezone>America/Indianapolis</timezone>
+      </lastModified>
+      <pruningSettings>
+        <archiveEnabled>true</archiveEnabled>
+      </pruningSettings>
+    </metadata>
+    <codeTemplateLibraries>
+      <codeTemplateLibrary version="3.11.0">
+        <id>8aefe7e3-fdf2-405d-b792-2964f9c25a32</id>
+        <name>DBFunction</name>
+        <revision>1</revision>
+        <lastModified>
+          <time>1629499846064</time>
+          <timezone>America/Indianapolis</timezone>
+        </lastModified>
+        <description></description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>79fc6928-247c-4c04-adab-3ec5b5c4200f</string>
+          <string>90dcd30f-8f9d-4983-b116-67b20fd03d27</string>
+          <string>b67641a1-06b7-4726-811c-69f773111256</string>
+          <string>5bc8e1a9-d2d6-4afc-8b12-3ca99eab5cd4</string>
+          <string>54f843ad-9477-44e4-bc3b-53ec7763e9cc</string>
+          <string>21cf07d1-b939-4c94-a26b-6c8cc12a43c1</string>
+          <string>a9b9d426-27ac-4d55-bd53-ea63a125717a</string>
+          <string>c30b3d7b-8c1d-47e1-9c94-4191a09663fd</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="3.11.0">
+            <id>a8d31f02-e279-403d-8d2d-53309742759f</id>
+            <name>DBConnClose</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1629499846136</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+function closeDBConn() {
+	// TODO: Enter code here
+	ConnString.close();
+}
+
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>c493db5f-ddf2-414c-912e-2ed7d6683f6b</id>
+            <name>DBConnOn</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1629499846158</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+function connectDB() {
+	
+	// TODO: Enter code here
+	var DBservername = configurationMap.get(&quot;DBServer&quot;);
+	var DBLoginId = configurationMap.get(&quot;userName&quot;); 
+	var DBLoginPass = configurationMap.get(&quot;userPass&quot;);
+	var DatabaseName = configurationMap.get(&quot;DBName&quot;);
+	var DBDriver =  configurationMap.get(&quot;driver&quot;);
+	var DBDSNName = &quot;jdbc:jtds:sqlserver://&quot; + DBservername + &quot;/&quot; + DatabaseName;
+	
+	return ConnString = DatabaseConnectionFactory.createDatabaseConnection(DBDriver,DBDSNName,DBLoginId,DBLoginPass);
+
+
+}
+
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>d1298cdf-b68d-4bb1-9113-8a781ade60c5</id>
+            <name>DBInsert</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1629499846117</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>GLOBAL_DEPLOY</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_UNDEPLOY</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+function insertDB(Fname, Lname) {
+		
+	DBconnection = connectDB();
+	var insertData = DBconnection.executeUpdate(&quot;INSERT IGNORE INTO [dbo].[MirthDataTest] (Fname,Lname) VALUES (&apos;&quot;+ Fname +&quot;&apos;,&apos;&quot; + Lname +&quot;&apos;)&quot;);
+	return insertData;
+}
+
+
+</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>7f936f6a-954c-4460-850e-6994d535db86</id>
+            <name>DBSelect</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1629499846086</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Modify the description here. Modify the function name and parameters as needed. One function per
+	template is recommended; create a new code template for each new function.
+
+	@param {String} arg1 - arg1 description
+	@return {String} return description
+*/
+function selectDB(ID) {
+
+	DBconnection = connectDB();
+	var sqlString = &quot;select ID, Fname, Lname from  [dbo].[MirthDataTest] where ID = &apos;&quot;+ ID +&quot;&apos;&quot;;
+	var selectData = DBconnection.executeCachedQuery(sqlString);
+	while(selectData.next()){
+		var ptname = selectData.getString(&quot;Fname&quot;);
+		logger.info(ptname);
+	}
+	return selectData;
+	
+	 
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+      <codeTemplateLibrary version="3.11.0">
+        <id>cefe5cbc-472d-4fcb-a088-c703f229fc6b</id>
+        <name>Library 2</name>
+        <revision>7</revision>
+        <lastModified>
+          <time>1629310604711</time>
+          <timezone>America/Indianapolis</timezone>
+        </lastModified>
+        <description>This library was added upon migration to version 3.3.0. It includes all pre-existing
+code templates, and is set to be included on all pre-existing and new channels.
+
+You should create your own new libraries and assign code templates to them as you
+see fit. You should also link libraries to specific channels, so that you&apos;re not
+necessarily including all code templates on all channels all the time.</description>
+        <includeNewChannels>true</includeNewChannels>
+        <enabledChannelIds>
+          <string>6b5e5690-a5e6-4914-bd82-3cfd5fb4e5a9</string>
+          <string>1892f241-d643-4abb-b0af-b20b87e0cf12</string>
+          <string>c8941341-1b57-483e-8163-ab5efc75792b</string>
+          <string>4a70c371-b800-4920-bb4e-953ccf6d7c9d</string>
+          <string>b6f83f5a-308b-4d71-8e74-aadda84d8b08</string>
+          <string>0e11dfbd-1f80-4c6a-a7a1-8a499df27b29</string>
+          <string>78ea0e4e-ecb5-4947-a92c-ff14fce014d7</string>
+          <string>e678dbf5-f021-43dc-84ae-967500d5c31a</string>
+          <string>dd5ab370-6174-43f1-b89d-f3a0d6ef5591</string>
+          <string>4c8eedf8-717c-42d3-aebc-60c58c4984e8</string>
+          <string>42e730bb-0721-435e-8dcf-d25d6d5d1dc6</string>
+          <string>907c5807-09ba-4022-b0bc-74bdc8c7f71d</string>
+          <string>dd23daf8-2c7a-4dbf-ae33-eaa4b386cb50</string>
+          <string>ab96849a-d2dc-445c-9f4b-308382c35bc1</string>
+          <string>abf48521-5e86-4c55-a753-f09655d318fb</string>
+          <string>da4c8983-5574-4f56-bf8f-851470b53f3d</string>
+          <string>1f6601bb-873b-4ad5-b267-365337c873cb</string>
+        </enabledChannelIds>
+        <disabledChannelIds/>
+        <codeTemplates>
+          <codeTemplate version="3.11.0">
+            <id>7b03b9e9-abd6-4a9b-b321-7f74b2e6665b</id>
+            <name>Copy Entire Field</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560278</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	CopyEntireField.  EX: msg.PID[&apos;PID.3&apos;] = copyEntireField( msg.PID[&apos;PID.2&apos;], &apos;PID.3&apos;);  // copies all
+	of PID:2 field to PID:3.
+*/
+/*
+
+	copyEntireField( copyFromField, copyToField ): Copies all components and subcomponents from one field to another.
+       Function originally posted on the Mirth forum as &apos;renameField&apos;.
+
+  	Source:  Mirth Support Forum	
+    Author:  Nick Rupley
+	Date Modified: 1/06/2012
+
+    Revision history: D. Compton  
+        11/23/2013 Argument names and function name were not adequately descriptive.  Arguments and function name changed below.
+        02/12/2014 added additional examples and clarification.
+        02/25/2014 Updated tooltips.
+
+	Arguments
+	---------
+		Required
+		--------
+			copyFromField:		  Segment field containing contents to copy.
+			copyToField:	      Segmnet field destination for the copy.
+
+    Example call:
+    ------------
+        1. msg.PID[&apos;PID.3&apos;] = copyEntireField( msg.PID[&apos;PID.2&apos;], &apos;PID.3&apos;);  // copies all of PID:2 field to PID:3.
+
+
+        2. // If there are multiple same-name segments then must identify segment&apos;s position as an array [0] or [1] etc.
+           // Here ORC is the current segment represented by seg.
+
+           for each (seg in msg.children()) {    
+               switch (seg.name().toString()) {
+                   case (&apos;ORC&apos;):
+                       if (msg[&apos;OBR&apos;][&apos;OBR.16&apos;][&apos;OBR.16.1&apos;][0].toString() != &quot;&quot;) {
+                           seg[&apos;ORC.12&apos;] = copyEntireField(msg.OBR[&apos;OBR.16&apos;][0], &apos;ORC.12&apos;)
+                           etc...
+                       }
+               }  
+           }
+*/
+
+function copyEntireField( copyFromField, copyToField ) {
+	String.prototype.entityReplace = function() {return this.replace(/&amp;/g,&apos;&amp;amp;&apos;).replace(/&quot;/g,&apos;&amp;quot;&apos;).replace(/&apos;/g,&apos;&amp;apos;&apos;).replace(/&lt;/g,&apos;&amp;lt;&apos;).replace(/&gt;/g,&apos;&amp;gt;&apos;);};
+	var out = new XML();
+	for each (field in copyFromField) {
+        var outField = new XML(&apos;&lt;&apos;+copyToField+&apos;/&gt;&apos;);
+		for each (component in field.children()) {
+			var cname = copyToField + component.name().toString().substring(component.name().toString().indexOf(&apos;.&apos;,component.name().toString().indexOf(&apos;.&apos;)+1));
+            if (component.children().length() &gt; 1) {
+				// Has subcomponents
+				var outComponent = new XML(&apos;&lt;&apos;+cname+&apos;/&gt;&apos;);
+				for each (subcomponent in component.children()) {
+					var scname = copyToField + subcomponent.name().toString().substring(subcomponent.name().toString().indexOf(&apos;.&apos;,subcomponent.name().toString().indexOf(&apos;.&apos;)+1));
+					var outSubcomponent = new XML(&apos;&lt;&apos;+scname+&apos;&gt;&apos;+subcomponent.toString().entityReplace()+&apos;&lt;/&apos;+scname+&apos;&gt;&apos;);
+					outComponent.scname = outSubcomponent;
+				}
+				outField.cname = outComponent;
+			}
+			else
+				outField.cname = new XML(&apos;&lt;&apos;+cname+&apos;&gt;&apos;+component.toString().entityReplace()+&apos;&lt;/&apos;+cname+&apos;&gt;&apos;);
+		}
+		out += outField;
+	}
+	return out;
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>41cc5ab6-34ff-4132-91b6-a858a4bb4200</id>
+            <name>Create Segment Before Segment</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560938</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Creates a new segment with the given name and inserts it before the given segment.  Ex: var orc =
+	createSegmentBefore(&apos;ORC&apos;,obr);
+
+	@param {Any} insertSegmentName - 
+	@param {Any} beforeThisSegment - 
+	@return {Any} 
+*/
+/*
+
+	createSegmentBefore(insertSegmentName, beforeThisSegment): Creates a new segment before an existing segment.
+
+  	Source:  Mirth Support Forum	
+    Author:  Nick Rupley
+	Date Modified: 7/2012
+
+    Revision history: D. Compton
+         02/25/2014 Updated tooltips.
+
+	Arguments
+	---------
+		Required
+		--------
+			insertSegmentName:		  Variable holding the segment for insertion.
+			beforeThisSegment:	      Name of the segment where the new segment will be inserted just before this segment.
+
+    Example
+    ------- 
+       //Create a new ORC segment before each OBR in the message and then modify it
+       for each (obr in msg.OBR) {
+	       var orc = createSegmentBefore(&apos;ORC&apos;, obr);
+	       orc[&apos;ORC.1&apos;][&apos;ORC.1.1&apos;] = &apos;1&apos;;
+	   // Etc.
+       }
+
+*/
+
+function createSegmentBefore(insertSegmentName, beforeThisSegment) {
+    var msgObj = beforeThisSegment;
+    while (msgObj.parent() != undefined) {
+        msgObj = msgObj.parent();
+    }
+    msgObj.insertChildBefore(beforeThisSegment[0], new XML(&apos;&lt;&apos; + insertSegmentName + &apos;&gt;&lt;/&apos; + insertSegmentName + &apos;&gt;&apos;));
+    return msgObj.child(beforeThisSegment[0].childIndex() - 1);
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>f11922c8-b84c-424d-a2d8-fbce09d9952b</id>
+            <name>Fix HL7 Node Order</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560609</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Fix HL7 Node Order
+*/
+/*
+
+	Author: Nick Rupley
+	Date Modified: 4/18/2012
+
+	fixHL7NodeOrder: Returns a new E4X node where the order of all siblings and descendants have been fixed as per the Mirth HL7 dot notation convention.
+
+  	Source:  Mirth Support Forum	
+    Author:  Nick Rupley
+	Date Modified: 4/18/2012
+
+    Revision history:
+
+	Arguments
+	---------
+		Required
+		--------
+            node: The node to be fixed. 
+
+    Example call:
+    ------------
+
+
+*/
+function fixHL7NodeOrder(node) {
+	// Create output node
+	var newNode = new XML();
+	// In case the node is an XMLList of multiple siblings, loop through each sibling
+	for each (sibling in node) {
+		// Create new sibling node
+		var newSibling = new XML(&apos;&lt;&apos;+sibling.name().toString()+&apos;/&gt;&apos;);
+		// Iterate through each child node
+		for each (child in sibling.children()) {
+			// If the child has its own children, then recursively fix the node order of the child
+			if (child.hasComplexContent()) {
+				newSibling.appendChild(fixHL7NodeOrder(child));
+			// If the child doesn&apos;t have its own children, then just add the child to the new sibling node
+			} else {
+				newSibling.appendChild(child);
+            }
+        }
+		// After recursively fixing all of the child nodes, now we&apos;ll fix the current node
+		newNode += sortHL7Node(newSibling);
+	}
+	// Return the fixed node
+	return newNode;
+}
+
+// Helper function for fixHL7NodeOrder
+function sortHL7Node(node) {
+	// If the node has no children, then there&apos;s nothing to sort
+	if (node.hasSimpleContent()) {
+		return node;
+    }
+	// Create new output node
+	var newNode = new XML(&apos;&lt;&apos;+node.name().toString()+&apos;/&gt;&apos;);
+	// Iterate through each child in the node
+	for each (child in node.children()) {
+		// If the child has a QName, then we can sort on it
+		if (child.name()) {
+			// Get the current &quot;index&quot; of the child. Id est, if the QName is PID.3.1, then the index is 1
+			curChildIndex = parseInt(child.name().toString().substring(child.name().toString().lastIndexOf(&apos;.&apos;)+1),10);
+			// Boolean placeholder
+			var inserted = false;
+			// Iterate through each child currently in the NEW node
+			for (var i = 0; i &lt;= newNode.children().length()-1; i++) {
+				// Get the index of the child of the new node
+				loopChildIndex = parseInt(newNode.child(i).name().toString().substring(newNode.child(i).name().toString().lastIndexOf(&apos;.&apos;)+1),10);
+				// If the child we want to insert has a lower index then the current child of the new node, then we&apos;re going to insert the child 
+				// right before the current newNode child
+				if (curChildIndex &lt; loopChildIndex) {
+					// Insert the child
+					newNode.insertChildBefore(newNode.children()[i],child);
+					// Set our flag, indicating that an insertion was made
+					inserted = true;
+					// No need to continue iteration
+					break;
+				}
+			}
+			// If no insertion was made, then the index of the child we want to insert is greater than or equal to all of the
+			// indices of the children that have already been inserted in newNode. So, we&apos;ll just append the child to the end.
+			if (!inserted)
+				newNode.appendChild(child);
+		}
+	}
+	// Return the sorted HL7 node
+	return newNode;
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>270003aa-9350-45a7-9397-58679320cb9d</id>
+            <name>Get Segments After a Particular Segment</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560744</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Returns an array of segments with the specified name that come after a given segment in the message.
+	Ex. var DG1grp = getSegmentsAfter(msg, msg.PID, &apos;DG1&apos;, false); consecutiveInd defaults to false if
+	omitted. stopSegName may be omitted.
+*/
+/*
+
+	getSegmentsAfter(root, startSeg, segName, consecutiveInd, stopSegNames): Returns an array of segments with the specified 
+          name that come after a given segment in the message.
+
+	Source:  Mirth Support Forum
+    Author:  Nick Rupley
+	Date Modified: 2/13/2013
+    Date documentation modified: 2/17/2014 by dcompton
+
+    Revision history:  D.Compton
+        02/17/2014  Updated Argument information
+        02/25/2014  Updated tooltip. 
+
+	Arguments
+	---------
+		Required
+		--------
+			root:			The root HL7Message node of the message, or the parent of the segment node.
+			startSeg:		The segment AFTER which to start collecting segments.
+                            02/17/2014 dcc -- If the startSeg is a multiple (like multile OBRs), and you want to 
+                                           collect all segments (like all DG1s or OBXs) after all of the multiple 
+                                           segments, use a startSeg like PID.  If you use startSeg[0], only the segName 
+                                           following the startSeg (first matching segment) will be collected. 
+			segName:		The name (String or RegExp) of the segments you want to collect.
+
+		Optional
+		--------
+			consecutiveInd:	If true, indicates that the segments are expected to come directly after startSeg. 
+							If false, segments are collected until another segment with the same name as startSeg is encountered.
+							Defaults to false.
+			stopSegNames:	An array of segment names that, when encountered, stop the collection of segments. Array defined like [&apos;OBR&apos;, &apos;ZPS&apos;]
+
+        Example call
+        ------------
+            var DG1grp = getSegmentsAfter(msg, msg.PID, &apos;DG1&apos;, false);
+                OBXArray = getSegmentsAfter(msg, seg, &apos;OBX&apos;, false, [&apos;OBR&apos;, &apos;xxx&apos;]); seg from: for each (seg in msg.children())
+
+*/
+
+function getSegmentsAfter(root, startSeg, segName, consecutiveInd, stopSegNames) {
+    function test(str) {
+        return segName instanceof RegExp ? segName.test(str) : segName === str;
+    }
+
+    // The index to start collection is the next one up from the starting segment
+    var index = startSeg.childIndex()+1;
+    // The return array
+    var out = [];
+    // Boolean placeholder to stop iteration
+    var done = false;
+    // Object that will contain all of the stopSegNames strings, bound to a truthy value (1)
+    var stopNames = {};
+    // Indicates whether we have any stop segments
+    var stopNamesInd = false;
+    // If stopSegNames is defined
+    if (stopSegNames !== undefined &amp;&amp; stopSegNames !== null) {	// Set our indicator to true
+        stopNamesInd = true;
+        // Add each string in the array to our object
+        for each (name in stopSegNames)
+            stopNames[name] = 1;
+    }
+
+    // Iterate through each child in the root, starting at the segment after startSeg, and
+    // ending at the final segment, or when the done flag is set to true.
+    while (index &lt; root.children().length() &amp;&amp; !done) {
+        // If a stop segment is encountered, stop iteration
+        if (stopNamesInd &amp;&amp; root.children()[index].name().toString() in stopNames)
+            done = true;
+        // If a segment with the same name as startSeg is encountered, stop iteration
+        else if (root.children()[index].name().toString() == startSeg.name().toString() &amp;&amp; !consecutiveInd)
+            done = true;
+        // If we&apos;re only collecting consecutive segments and we encounter a segment with a name other than segName, stop iteration
+        else if (!test(root.children()[index].name().toString()) &amp;&amp; consecutiveInd)
+            done = true;
+        // If all previous tests passed, and the current segment has a name of segName, then add it to our array
+        else if (test(root.children()[index].name().toString()))
+            out.push(root.children()[index]);
+            // Increment our index counter
+            index++;
+    }
+
+    // Return the output array
+    return out;
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>a99624ec-1572-495c-ac9f-ee64826e400a</id>
+            <name>Insert Segment After Segment</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560810</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Inserts a given segment after a particular segment.  Ex:  insertSegmentAfter(pv1,msg.PID);
+*/
+/*
+
+	insertSegmentAfter(insertSegment, afterThisSegment): Inserts an already formed segment after an existing segment.
+
+	Source:  Mirth Support Forum	
+    Author:  Nick Rupley
+	Date Modified: 7/2012
+
+    Revision history:  D. Compton
+        02/25/2014  Updated tooltip
+
+	Arguments
+	---------
+		Required
+		--------
+			insertSegment:   		  Variable holding the segment for insertion.
+			afterThisSegment:	      Name of the segment where the new segment will be inserted.
+
+    Example
+    -------
+        //Insert a pre-modified PV1 segment after the PID segment
+        var pv1 = &lt;PV1/&gt;;
+        pv1[&apos;PV1.1&apos;][&apos;PV1.1.1&apos;] = &apos;1&apos;;
+        // Etc.
+        insertSegmentAfter(pv1, msg.PID);
+
+*/
+function insertSegmentAfter(insertSegment, afterThisSegment) {
+    var msgObj = afterThisSegment;
+    while (msgObj.parent() != undefined) {
+        msgObj = msgObj.parent();
+    }
+    msgObj.insertChildAfter(afterThisSegment[0], insertSegment);
+    return msgObj.child(afterThisSegment[0].childIndex() + 1);
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>266eb95e-f375-4887-9a8c-3973a416a8c7</id>
+            <name>Insert Segment Before Segment</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560679</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Inserts a given segment before a particular segment.  Ex: insertSegmentBefore(orc,obr);
+*/
+/*
+
+	insertSegmentBefore(insertSegment, beforeThisSegment): Inserts an already formed segment prior to an existing segment.
+
+	Source:  Mirth Support Forum
+	Author:  Nick Rupley
+	Date Modified: 7/2012
+
+    Revision history:  D. Compton
+        02/25/2014  Updated tooltip
+
+	Arguments
+	---------
+		Required
+		--------
+			insertSegment:   		  Variable holding the segment for insertion.
+			beforeThisSegment:	      Name of the segment where the new segment will be inserted.
+
+    Example:
+    -------
+       //Insert a pre-modified ORC segment before each OBR in the message.
+       for each (obr in msg.OBR) {
+	       var orc = &lt;ORC/&gt;;
+	       orc[&apos;ORC.1&apos;][&apos;ORC.1.1&apos;] = &apos;1&apos;;
+	      // Etc.
+	      insertSegmentBefore(orc, obr);
+       }
+
+*/
+
+function insertSegmentBefore(insertSegment, beforeThisSegment) {
+    var msgObj = beforeThisSegment;
+    while (msgObj.parent() != undefined) {
+        msgObj = msgObj.parent();
+    }
+	msgObj.insertChildBefore(beforeThisSegment[0], insertSegment);
+	return msgObj.child(beforeThisSegment[0].childIndex() - 1);
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>fc1ffb3b-3b4a-4b16-b9e8-6e949ce702c5</id>
+            <name>Postgres Backup</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560456</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Postgres Backup Function
+*/
+function postgresBackup(){
+// NOTE: ASSUMES INSTALLATION TO C: DRIVE //
+
+importPackage(java.io);
+importPackage(java.lang);
+
+// ############################### CONFIGURATION SECTION ###############################
+
+	// Set DB Username
+	//var dbUser = &apos;admin&apos;;
+	var dbUser = &apos;dcompton&apos;;
+	
+	// Set DB Password
+	//var dbPass = &apos;admin&apos;;
+	var dbPass = &apos;maddie&apos;;
+
+	// Set Number of Backups to Keep
+	var intDaysKeep = 3;
+	
+	// Alert Email Subject line
+	var subjLine = &quot;BACKUP_FAILURE_DETECTED&quot;;
+	
+	// Set Alert Email Sender
+	var fromAddr = &apos;MIRTH_BACKUP_ALERT@backupMonitor.com&apos;;
+	
+	// Set Alert Email Recipient
+	//var toAddr = &apos;jimpson@orchardsoft.com&apos;;
+	var toAddr = &apos;dcompton@orchardsoft.com&apos;;	
+
+	// Set Alert Email CC
+	//var ccAddr = &apos;rhoward@orchardsoft.com&apos;;
+	var ccAddr = &apos;&apos;;
+	
+	// Warn on Missing Directory
+	var missingDir = true;
+	
+	// Host System to Run Backup onabort
+	var host = &quot;localhost&quot;;
+	
+	// Host System port
+	var port = &quot;5432&quot;;
+	
+	// Database to Backup
+	var dbToBackup = &quot;mirthdb&quot;;
+
+	// Enable Debugging (Disables File Deletion)
+	var debug = true;
+
+	// Disable/Enable Outbound Mail Alerts
+	var mailAlert = true;
+
+// ############################### CONFIGURATION SECTION ###############################
+
+// ############################### GLOBAL VARIABLES ###############################
+
+	// Primary Drive
+	var primDrive = &quot;C:&quot;;	
+
+	// Configuration Folder
+	//var confPath = &quot;C:\\Orchard\\Backup\\Conf\\&quot;;
+	var confPath = &quot;C:\\Mirth\\Backup\\Conf\\&quot;;
+	
+	// Backup Log Folder
+	//var logPath = &quot;C:\\Orchard\\Backup\\Log\\&quot;;
+	var logPath = &quot;C:\\Mirth\\Backup\\Log\\&quot;;
+	
+	// Backup Folder
+	//var backupPath = &quot;C:\\Orchard\\Backup\\&quot;;
+	var backupPath = &quot;C:\\Mirth\\Backup\\&quot;;
+	
+	// Batch File Name
+	var batch = &quot;ORCH_PG_BACKUP.bat&quot;;
+	
+	// Pgpass File Name
+	var pgpass = &quot;pgpass.conf&quot;;
+
+	// PG_DUMP Locale
+	//var pgDump = &apos;&quot;C:\\Program Files (x86)\\PostgreSQL\\9.2\\bin\\pg_dump.exe&quot;&apos;;
+	var pgDump = &apos;&quot;C:\\Program Files\\PostgreSQL\\9.3\\bin\\pg_dump.exe&quot;&apos;;
+
+// ############################### GLOBAL VARIABLES ###############################	
+
+var fs = new File(primDrive);
+var numCheck;
+var delCheck;
+var delCan;
+var bTime = new Date().toUTCString();
+
+if(pathCheck())
+{
+	if(!fileCheck(confPath + batch))
+	{
+		try
+		{
+			createPGBakBatch();
+		}
+		catch(ex)
+		{
+			logger.error(ex.name + &quot; || &quot; + ex.message);
+		}
+	}
+	
+	if(!fileCheck(confPath + pgpass))
+	{
+		try
+		{
+			createPGPass();
+		}
+		catch(ex)
+		{
+			logger.error(ex.name + &quot; || &quot; + ex.message);
+		}
+	}
+}
+else
+{
+	dbg(&apos;@-Path Status(Directory Check: &apos; + pathCheck() + &apos; Batch Check: &apos; + fileCheck(confPath + batch) + &apos; PGPass Check: &apos; + fileCheck(confPath + pgpass), &apos;debug&apos;);
+	var fileBdy = &quot;The backup channel failed to create the required folders/files to properly execute.\n&quot;
+					+ &quot;Directory Check: &quot; + pathCheck();
+					+ &quot;Batch Check: &quot; + fileCheck(confPath + batch)
+					+ &quot;PGPass Check: &quot; + fileCheck(confPath + pgpass);
+					
+	mailResults(toAddr, ccAddr, fromAddr, subjLine, fileBdy);
+	orchClean();
+	return &apos;&lt;BACKUP status=&quot;failed&quot; issue=&quot;pathIssue&quot; time=&quot;&apos; + bTime + &apos;&quot;/&gt;&apos;;
+}
+
+var dbSize = getDBSize();
+var prevStat = getBakStatus();
+dbg(&quot;@-PREVIOUS BACKUP STATUS: &quot; + prevStat);
+dbg(&quot;@-PRE Available Disk Space: &quot; + (fs.getUsableSpace() / (1024 * 1024)) + &quot; MB Free&quot;, &apos;debug&apos;);
+dbg(&quot;@-PRE Required Disk Space: &quot;  + (dbSize / (1024 * 1024)) + &quot; MB&quot;, &apos;debug&apos;);	
+	
+if(fs.getUsableSpace() &gt; dbSize)
+{
+	numCheck = directoryList(backupPath, &quot;bak&quot;);
+
+	dbg(&quot;@-NumberOfFilesInBackupFolder: &quot; + numCheck[0], &apos;debug&apos;);		
+
+	if(execBackup())
+	{
+		dbg(&quot;@-Available Disk Space: &quot; + (fs.getUsableSpace() / (1024 * 1024)) + &quot; MB Free&quot;, &apos;debug&apos;);
+		dbg(&quot;@-Required Disk Space: &quot;  + (dbSize / (1024 * 1024)) + &quot; MB&quot;, &apos;debug&apos;);
+		orchClean();
+		return &apos;&lt;BACKUP status=&quot;SUCCESS&quot; issue=&quot;&quot; time=&quot;&apos; + bTime + &apos;&quot;/&gt;&apos;;
+	}
+	else
+	{
+		dbg(&quot;@-Available Disk Space: &quot; + (fs.getUsableSpace() / (1024 * 1024)) + &quot; MB Free&quot;, &apos;debug&apos;);
+		dbg(&quot;@-Required Disk Space: &quot;  + (dbSize / (1024 * 1024)) + &quot; MB&quot;, &apos;debug&apos;);
+		orchClean();
+		return &apos;&lt;BACKUP status=&quot;FAILED&quot; issue=&quot;SEE_LOG_INFO&quot; time=&quot;&apos; + bTime + &apos;&quot;/&gt;&apos;;
+	}
+}
+else
+{
+	var spcBdy = &quot;A backup cannot be performed due to limited available disk space.\n&quot;
+				+ &quot;Check the amount of available space left of the disk.\r\n&quot;
+				+ &quot;Available Disk Space: &quot; + (fs.getUsableSpace() / (1024 * 1024)) + &quot;MB Free\n&quot;
+				+ &quot;Required Disk Space: &quot;  + (dbSize / (1024 * 1024)) + &quot;MB&quot;;
+				
+	mailResults(toAddr, ccAddr, fromAddr, subjLine, spcBdy);
+	dbg(&quot;@-Space Failure Available Disk Space: &quot; + (fs.getUsableSpace() / (1024 * 1024)) + &quot; MB Free&quot;, &apos;debug&apos;);
+	dbg(&quot;@-Space Failure Required Disk Space: &quot;  + (dbSize / (1024 * 1024)) + &quot; MB&quot;, &apos;debug&apos;);
+	orchClean();
+	return &apos;&lt;BACKUP status&quot;failed&quot; issue=&quot;insufficient_drive_space&quot; time=&quot;&apos; + bTime + &apos;&quot;/&gt;&apos;;
+}
+
+function orchClean()
+{
+	//if(debug)
+	// ChannelUtil.undeployChannel(&apos;AA_Postgres Maintenance&apos;);		
+
+	var b = new File(confPath + batch);
+	var p = new File(confPath + pgpass);
+	if(b.exists())
+	{
+		b.delete();
+	}
+	if(p.exists())
+	{
+		p.delete();
+	}		
+}
+
+function pathCheck()
+{
+	try 
+	{
+		var cPath = new File(confPath);
+		var lPath = new File(logPath);
+		var bPath = new File(backupPath);
+		var cCheck = false;
+		var lCheck = false;
+		
+		if (cPath.exists() &amp;&amp; lPath.exists())
+		{
+			return true;
+		}
+		else
+		{
+			if(bPath.exists())
+			{		
+				if(!cPath.exists())
+				{
+					cCheck = cPath.mkdir();
+				}
+				else
+				{
+					cCheck = true;
+				}
+
+				if(!lPath.exists())
+				{
+					lCheck = lPath.mkdir();
+				}
+				else
+				{
+					lCheck = true;
+				}
+			
+				if(cCheck &amp;&amp; lCheck)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			else
+			{
+				cCheck = cPath.mkdirs();
+				lCheck = lPath.mkdir();
+				
+				if(cCheck &amp;&amp; lCheck)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+		}
+	}
+	catch(ex)
+	{
+		logger.error(ex.name + &quot; || &quot; + ex.message);
+	}
+}
+
+function fileCheck(file) 
+{
+	try
+	{
+		var cFile = new File(file);
+
+		if(cFile.exists())
+		{	
+			dbg(&apos;@-File Check (&apos; + file + &apos;): Exists&apos;, &apos;debug&apos;);		
+			return true;
+		}
+		else
+		{	
+			dbg(&apos;@-File Check (&apos; + file + &apos;): Does NOT Exist&apos;, &apos;debug&apos;);	
+			return false;
+		}
+	}
+	catch(ex)
+	{
+		logger.error(ex.name + &quot; || &quot; + ex.message);
+	}
+}
+
+function getCandidate(fileArr, age)
+{
+	// Do not make calls to dbg() from this function
+
+	var delFile = null;
+
+	if(age == &apos;oldest&apos;)
+	{
+		for each(file in fileArr)
+		{
+			if((delFile == null) || (delFile.age &gt; file.age))
+			{
+				delFile = file;
+			}
+		}
+	}
+	else
+	{
+		for each(file in fileArr)
+		{
+			if((delFile == null) || (delFile.age &lt; file.age))
+			{
+				delFile = file;
+			}
+		}
+	}
+	return delFile;
+}
+ 
+function directoryList(startPath, dotEx)
+{
+	// Do not make calls to dbg() from this function
+
+	var fileObject = new File(startPath);
+	var list = fileObject.list();
+	var results = [];
+	var fileCnt = 0; 
+ 
+	for (var i = 0; i&lt;list.length; i++) 
+	{
+	    var child = new File(startPath + &quot;/&quot; + list[i]);
+ 
+	    if (child.isDirectory())
+		{
+	    	//var recurseDirectoryListing = directoryList(child.getCanonicalPath(), dotEx);
+	    	//results = results.concat(recurseDirectoryListing);
+	    }
+	    else
+		{
+	    	var fileArray = {};
+
+	    	fileArray[&apos;path&apos;] = child.getCanonicalPath();
+	    	fileArray[&apos;name&apos;] = child.getName();
+	    	//fileArray[&apos;parent&apos;] = child.getParent();
+	    	fileArray[&apos;hidden&apos;] = child.isHidden() ;
+	    	fileArray[&apos;dir&apos;] = child.isDirectory() ;
+			fileArray[&apos;age&apos;] = child.lastModified();
+
+	    	var pos = fileArray[&apos;name&apos;].lastIndexOf(&apos;.&apos;);
+
+	    	if (pos &lt; 0)
+			{
+				fileArray[&apos;ext&apos;] = &apos;&apos;;
+			}
+			else
+			{
+				fileArray[&apos;ext&apos;] = fileArray[&apos;name&apos;].substring(pos+1);
+			}
+			
+			if(fileArray[&apos;ext&apos;] == dotEx)
+			{
+				fileCnt += 1;
+				results.push(fileArray);
+			}
+	    }
+	}
+
+	var retArray = new Array();
+
+	if(fileCnt &gt; 0)
+	{	
+		retArray[0] = fileCnt;
+		retArray[1] = results;
+		
+		return retArray;
+	}
+	else
+	{
+		retArray[0] = 0;
+		retArray[1] = null;
+	
+		return retArray;
+	}
+}
+
+function mailResults(to, cc, from, subject, body)
+{
+	dbg(&apos;@-ALERT MAIL:&apos;);
+	var smtpConn = SMTPConnectionFactory.createSMTPConnection();
+	try
+	{
+		dbg(&apos;@-Mail Results To: &apos; + to, &apos;debug&apos;);
+		dbg(&apos;@-Mail Results CC: &apos; + cc, &apos;debug&apos;);
+		dbg(&apos;@-Mail Results From: &apos; + from, &apos;debug&apos;);
+		dbg(&apos;@-Mail Results Body: &apos; + body, &apos;debug&apos;);	
+
+		if(mailAlert)
+		{
+			if(cc == &apos;&apos;)
+			smtpConn.send(to,null, from, subject, body);
+			else
+			smtpConn.send(to,cc, from, subject, body);
+
+			logger.info(&apos;A Backup Failure has been detected - Alert Mail Sent Succesfully&apos;);
+		}
+	}
+	catch(ex)
+	{
+		logger.error(&apos;Alert Failed to Send with Error Message: &apos; + ex.name + &apos; || &apos; + ex.message);
+		return;
+	}
+}
+	
+function createPGBakBatch()
+{
+	var s = &quot;::@echo on\r\n&quot;
+			+ &quot;:: =====================================================================================================================\r\n&quot;
+			+ &quot;:: [SCRIPT TITLE] 	POSTGRESQL BACKUP SCRIPT\r\n&quot;
+			+ &quot;:: [DEPARTMENT]		AUTOMATED TESTING\r\n&quot;
+			+ &quot;:: [ORGANIZATION]	ORCHARD SOFTWARE CORP.\r\n&quot;
+			+ &quot;:: [DATE]			2014-JAN-9\r\n&quot;
+			+ &quot;:: [AUTHOR]			JLI\r\n&quot;
+			+ &quot;:: [DESCRIPTION]		This script will create a backup of PostgreSQL and store it in a predetermined location.\r\n&quot;
+			+ &quot;:: 						The PGPASSFILE variable must point to a valid pgpass.conf file.  By default, a pgpass file\r\n&quot;
+			+ &quot;:: 						is stored in %APPDATA%\postgesql\ and may be referenced. The pgpass file in this location is\r\n&quot;
+			+ &quot;:: 						blank by default.\r\n&quot;
+			+ &quot;:: =====================================================================================================================\r\n&quot;
+			+ &quot;:: Set required file location\r\n&quot;
+			+ &quot;SET PGPASSFILE=&quot; + confPath + pgpass + &quot;\r\n&quot;
+			+ &quot;:: Set Date String\r\n&quot;
+			+ &apos;FOR /f &quot;tokens=1-4 delims=/ &quot; %%i IN (&quot;%date%&quot;) DO (\r\n&apos;
+			+ &quot;SET dow=%%i\r\n&quot;
+			+ &quot;SET month=%%j\r\n&quot;
+			+ &quot;SET day=%%k\r\n&quot;
+			+ &quot;SET year=%%l\r\n&quot;
+			+ &quot;)\r\n&quot;
+			+ &quot;SET DT=%month%_%day%_%year%\r\n&quot;
+			+ &quot;SET FILENAME=%DT%\r\n&quot;
+			+ &quot;:: Set Backup Log Pathname\r\n&quot;
+			+ &quot;SET LOGPATH=&quot; +  logPath + &quot;\r\n&quot;
+			+ &quot;:: Set Backup Pathname\r\n&quot;
+			+ &quot;SET BAKPATH=&quot; + backupPath + &quot;\r\n&quot;
+			+ &quot;:: This Command Starts the Backup of PostgreSQL Database(s)\r\n&quot;
+			+ pgDump + &apos; --no-password --format=&quot;custom&quot; --username=&apos; + dbUser + &apos; &apos; + dbToBackup + &apos; &gt; &quot;%BAKPATH%%FILENAME%.bak&quot;\r\n&apos;
+			+ &quot;:: Remove the &apos;::&apos; from the line below to verify the script runs error free\r\n&quot;
+			+ &quot;:: PAUSE\r\n&quot;;
+			
+	var batFile = confPath + batch;
+
+	dbg(&apos;@-Create Batch: &apos; + batFile, &apos;debug&apos;);
+			
+	try
+	{
+		var batWriter = new java.io.BufferedWriter(new java.io.FileWriter(batFile));
+		batWriter.write(s);
+	}
+	catch(ex)
+	{
+		logger.error(ex.name + &quot; || &quot; + ex.message);
+	}
+	finally
+	{
+		try
+		{
+			if(batWriter != null)
+			{
+				batWriter.close();
+			}
+		}
+		catch(ex)
+		{
+			logger.error(ex.name + &quot; || &quot; + ex.message);
+		}
+	}
+}	
+	
+function createPGPass()
+{
+	var pg = host + &quot;:&quot; + port + &quot;:&quot; + dbToBackup + &quot;:&quot; + dbUser + &quot;:&quot; + dbPass;
+	var pgFile = confPath + pgpass;
+	
+	dbg(&apos;@-Create PGPass: &apos; + pgFile, &apos;debug&apos;);
+			
+	try
+	{
+		var pgWriter = new java.io.BufferedWriter(new java.io.FileWriter(pgFile));
+		pgWriter.write(pg);
+	}
+	catch(ex)
+	{
+		logger.error(ex.name + &quot; || &quot; + ex.message);
+	}
+	finally
+	{
+		try
+		{
+			if(pgWriter != null)
+			{
+				pgWriter.close();
+			}
+		}
+		catch(ex)
+		{
+			logger.error(ex.name + &quot; || &quot; + ex.message);
+		}
+	}
+}
+
+function getDBSize()
+{
+	try
+	{
+		var dbConn = DatabaseConnectionFactory.createDatabaseConnection(&apos;org.postgresql.Driver&apos;,&apos;jdbc:postgresql://&apos; + host + &quot;:&quot; + port + &quot;/&quot; + dbToBackup, dbUser, dbPass);
+		var query = &quot;select pg_database_size(pg_database.datname) from pg_database where pg_database.datname = &apos;&quot; + dbToBackup + &quot;&apos;&quot;;
+		var resultSet = dbConn.executeCachedQuery(query);
+		var results = &apos;&apos;;
+
+		dbg(&apos;@-Get DB Size: &apos; + query, &apos;debug&apos;);
+
+		while (resultSet.next())
+		{
+			results = resultSet.getLong(&quot;pg_database_size&quot;);
+		}
+	}
+	catch(ex)
+	{
+		logger.info(ex.message);
+	}
+	finally
+	{
+		dbConn.close();
+	}
+return results;
+}
+
+function getBakStatus()
+{
+	try
+	{
+		//var dbConn = DatabaseConnectionFactory.createDatabaseConnection(&apos;org.postgresql.Driver&apos;,&apos;jdbc:postgresql://localhost:5432/mirthdb&apos;, &quot;admin&quot;, &quot;admin&quot;);
+		var dbConn = DatabaseConnectionFactory.createDatabaseConnection(&apos;org.postgresql.Driver&apos;,&apos;jdbc:postgresql://localhost:5432/mirthdb&apos;, dbUser, dbPass);
+		var queryOne = &quot;select d_channels.local_channel_id from channel left join d_channels on channel.id = d_channels.channel_id where channel.id = &apos;&quot; + channelId + &quot;&apos;&quot;;
+		var resultOne = dbConn.executeCachedQuery(queryOne);
+		var tNum = &apos;&apos;;
+
+		while (resultOne.next())
+		{
+			tNum = resultOne.getString(&quot;local_channel_id&quot;);
+		}
+
+		var queryTwo = &quot;select content from d_mc&quot; + tNum + &quot; where content_type = 1 order by message_id desc limit 1&quot;;
+		var resultTwo = dbConn.executeCachedQuery(queryTwo);
+		var results = &apos;&apos;;
+
+		while (resultTwo.next())
+		{
+			results = resultTwo.getString(&quot;content&quot;);
+		}
+	}
+	catch(ex)
+	{
+		logger.info(ex.message);
+	}
+	finally
+	{
+		dbConn.close();
+	}
+
+	//if(results.indexOf(&quot;success&quot;) != -1)
+	//{
+	//	return &quot;Successful&quot;;
+	//}
+	//else
+	//{
+	//	return &quot;Failed&quot;;
+	//}
+
+return results;	
+}
+
+function execPGDump()
+{
+	var delayCountMax = 240;
+	var retCode;
+	var command = new Array();
+	command[0] = confPath + batch;
+	command[1] = &apos;/C&apos;;
+	
+	var p = java.lang.Runtime.getRuntime().exec(command);
+	var input = new BufferedReader(new InputStreamReader(p.getInputStream()));
+	var err = new BufferedReader(new InputStreamReader(p.getErrorStream()));
+		
+	while((line = input.readLine()) != null)
+	{
+		// dbg(&apos;&lt;Output: &apos; + line + &apos;&gt;&apos;, &apos;debug&apos;);
+	}
+		
+	if(line == null)
+	{
+		retCode = p.exitValue();
+	
+		dbg(&apos;Return Code: &apos; + retCode, &apos;debug&apos;);
+
+		while((line = err.readLine()) != null)
+		{
+			dbg(&apos;Error: &apos; + line, &apos;debug&apos;);
+		}		
+	}
+return retCode;
+}
+
+function execBackup()
+{
+	logger.info(&quot;Starting Backup...&quot;);
+	dbg(&quot;Starting Backup...&quot;, &apos;info&apos;);
+	
+	// Execute the batch file and wait for return code
+	var exCode = execPGDump();
+	dbg(&apos;@-Exit Code: &apos; + exCode, &apos;debug&apos;);
+	
+	// This indicates failure
+	if(exCode != 0)
+	{
+		logger.error(&quot;Backup Failed with Exit Code: &quot; + exCode);
+		
+		var exCodeBdy = &quot;The backup channel has failed to run a backup.\n&quot;
+						+ &quot;This failure is likely due to an issue with PG_Dump (PostgreSQL&apos;s Backup Utility).\n&quot;
+						+ &quot;Please contact Orchard Software&apos;s Technical Support Team (1-800-573-5835) for additional assistance.\r\n&quot;
+						+ &quot;Exit Code: &quot; + exCode;
+						
+		mailResults(toAddr, ccAddr, fromAddr, subjLine, exCodeBdy);
+		orchClean();
+		return &apos;&lt;BACKUP status=&quot;failed&quot; issue=&quot;improper_exit_code_&apos; + exCode + &apos;&quot;/&gt;&apos;;
+	}
+	// Success, keep going
+	else
+	{
+		logger.info(&apos;The backup process has completed.  Exit Code: &apos; + exCode);
+		dbg(&apos;@-Backup Complete: Yes&apos;, &apos;info&apos;);
+
+		numCheck = directoryList(backupPath, &quot;bak&quot;);
+
+		dbg(&apos;@-Pre Delete File Count: &apos; + numCheck[0], &apos;debug&apos;);
+		
+		if(numCheck[0] &gt; intDaysKeep)
+		{			
+			while(numCheck[0] &gt; intDaysKeep)
+			{
+				delCan = getCandidate(numCheck[1], &apos;oldest&apos;);
+				dbg(&apos;@-Candidate: &apos; + delCan.name, &apos;debug&apos;);
+				
+				try
+				{	
+					dbg(&apos;@-Candidate Extenstion: &apos; + delCan.ext, &apos;debug&apos;);
+					
+					if(delCan.ext == &apos;bak&apos;)
+					{
+						var delFile = new File(delCan.path);
+						dbg(&apos;@-Pre Delete File Name : &apos; + delCan.path, &apos;debug&apos;);
+
+						try
+						{
+							if(delFile.delete())
+							{
+								dbg(&quot;@-File Deleted: Successfully&quot;, &apos;debug&apos;);
+								numCheck = directoryList(backupPath, &quot;bak&quot;);
+							}
+						}
+						catch(ex)
+						{
+							logger.error(ex.name + &quot; || &quot; + ex.message);
+							dbg(&quot;@-File Deleted: Failed&quot;, &apos;debug&apos;);
+							break;
+						}
+					}
+				}
+				catch(ex)
+				{
+					logger.error(&quot;Delete Failed with message: &quot; + ex.name + &quot; || &quot; + ex.message);
+					dbg(&quot;@-File Hadling Failed with Message: &quot; + ex.name + &quot; || &quot; + ex.message);
+				}
+			}
+			logger.info(&apos;Exiting Backup Process&apos;);
+			dbg(&apos;Exiting Backup Process&apos;, &apos;info&apos;);
+
+			return true;
+		}
+		else if(numCheck[0] == intDaysKeep)
+		{
+			dbg(&apos;@-BACKUP COUNT: &apos; + numCheck[0], &apos;debug&apos;);
+			return true;
+		}
+		else if(numCheck[0] == 0)
+		{
+			dbg(&apos;@-BACKUP COUNT: &apos; + numCheck[0]);
+			
+			var exCodeBdy = &quot;The backup channel has failed to run a backup.\n&quot;
+				+ &quot;This failure is likely due to an issue with PG_Dump (PostgreSQL&apos;s Backup Utility).\n&quot;
+				+ &quot;Please contact Orchard Software&apos;s Technical Support Team (1-800-573-5835) for additional assistance.\r\n&quot;
+				+ &quot;Exit Code: &quot; + exCode;
+							
+			mailResults(toAddr, ccAddr, fromAddr, subjLine, exCodeBdy);
+			return false;
+		}
+		else
+		{
+			dbg(&apos;@-BACKUP COUNT: &apos; + numCheck[0], &apos;debug&apos;);
+			return true;
+		}
+	}
+}
+
+function dbg(info, level)
+{
+	var logFile;
+	var maxSize = 500000;
+	var maxKeep = 20;
+	var t = new Date();
+	var yyyy = t.getFullYear();
+	var mo = t.getMonth();
+	var dd = t.getDate();
+	var hh = t.getHours();
+	var mm = t.getMinutes();
+	var ss = t.getSeconds();
+	var ms = t.getMilliseconds();
+	var logStamp = yyyy + &quot;/&quot; + (mo + 1) + &quot;/&quot; + dd + &quot;  &quot; + hh + &quot;:&quot; + mm + &quot;:&quot; + ss + &quot;:&quot; + ms;
+	var fileName = &quot;ORCH_MIRTH_BACKUP&quot; + &quot; &quot; +yyyy + &quot;-&quot; + (mo + 1) + &quot;-&quot; + dd + &quot;  &quot; + hh + mm + ss + &quot;.log&quot;;
+
+	var out = null;
+	
+	try
+	{
+		var fl = directoryList(logPath, &quot;log&quot;);
+
+		if(fl == null || fl[0] == 0)
+		{
+			logFile = new FileWriter(logPath + fileName, true);
+		}
+		else
+		{
+			var lgFl = getCandidate(fl[1], &apos;newest&apos;);
+			var log = new File(lgFl.path);
+
+			if(log.length() &lt; maxSize)
+			{
+				logFile = new FileWriter(log.path, true);
+			}
+			else
+			{
+				logFile = new FileWriter(logPath + fileName, true);
+			}
+		}
+				
+		out = new BufferedWriter(logFile);
+		
+		if(debug &amp;&amp; level == &apos;debug&apos;)
+		{
+			out.write(&quot;DEBUG: &quot; + logStamp + &quot;  &quot; + info + &quot;\r\n&quot;);
+		}
+		else
+		{
+			out.write(&quot;INFO: &quot; + logStamp + &quot;  &quot; + info + &quot;\r\n&quot;);
+		}
+	}
+	catch(ex)
+	{
+		logger.error(&apos;Error writing to log file&apos;);
+		logger.error(ex.name + &quot; || &quot; + ex.message);
+	}
+	finally
+	{
+		if(out != null)
+		{
+			out.close();
+		}
+	
+		var logList = directoryList(logPath, &quot;log&quot;);
+
+		if(logList[0] &gt; maxKeep)
+		{
+			var cf = getCandidate(logList[1], &apos;oldest&apos;);
+			var df = new File(cf.path);
+			if(!df.delete())
+			{
+				logger.error(&apos;Failed to delete old log file&apos;);
+			}
+		}
+	}
+
+	//if(debug)
+	//logger.info(&apos;****BACKUP CHANNEL DEBUG MESSAGE**** | &apos; + info);
+}}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>1a1e45bc-12d8-43bc-b8c0-ef901d353d1c</id>
+            <name>Rename Segment</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560532</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Rename segment.  Ex: renameSegment (&apos;OBR&apos;, &apos;OBB&apos;);  segmentIterationToChange=0 if omitted
+
+	@param {Any} segmentNameToChange - 
+	@param {Any} segmentNewName - 
+	@param {Any} segmentIterationToChange - 
+	@return {Any} 
+*/
+/*
+   renameSegment (segmentNameToChange, segmentNewName, segmentIterationToChange):  Function to rename a segment
+
+   Author: D Compton 
+   Date modified: 10/10/2013 
+
+   Revision history: D. Compton
+     02/25/2015  Updated tooltip
+
+    Arguments
+    ---------
+        Required
+        --------
+           segmentNameToChange       Segment name to change.
+           segmentNewName            New segment name.
+
+       Optional
+       --------
+           segmentIterationToChange  For multiple segments with the same name, the iteration that should be altered. 
+                                       If omitted, iteration zero is assumed.
+
+       Example call
+       ------------
+           renameSegment (&apos;OBR&apos;, &apos;OBB&apos;);
+*/
+
+function renameSegment (segmentNameToChange, segmentNewName, segmentIterationToChange) {
+    var index = -1;
+    var oldName = &quot;&quot;;
+    var newName = &quot;&quot;;
+    var segments = [];
+
+    segments = msg[segmentNameToChange];
+
+    segmentNameToChange = segmentNameToChange + &quot;\.&quot;;
+    if (!segmentIterationToChange) {
+        var segmentIterationToChange = 0;
+    }
+    for each (seg in segments) {
+        index++;
+        if (index == segmentIterationToChange) {
+            seg.setName(segmentNewName);
+            segmentNewName = segmentNewName + &apos;.&apos;;
+            if (seg.hasComplexContent()) {  
+                for each (field in seg.children()){  // change field names
+                    oldName = field.name().toString();
+                    newName = oldName.replace(RegExp(segmentNameToChange), segmentNewName);
+                    field.setName(newName);
+                    if (field.hasComplexContent()) {  // change component names
+                        for each (component in field.children()) {
+                            oldName = component.name().toString();
+                            newName = oldName.replace(/OBR\./, segmentNewName);
+                            component.setName(newName);
+                            if (component.hasComplexContent()) {  // change subcomponent names
+                                for each (subcomponent in component.children()) {
+                                    oldName = subcomponent.name().toString();
+                                    newName = oldName.replace(/OBR\./, segmentNewName);
+                                    subcomponent.setName(newName);
+                                } // for each (subcomponent in component.children()) 
+                            } // if (component.hasComplexContent())
+                        } // for each (component in field.children())
+                    } // if (field.hasComplexContent())
+                } // for each (field in seg.children())
+            } // if (seg.hasComplexContent())
+        } // if (index == whichSeg) 
+    } // for each (seg in segments)
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>dbd5c968-3c17-4a38-9ade-83924cb77c65</id>
+            <name>Strip Empty Nodes from XML</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560879</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Recursively iterates through all descendant nodes of an E4X XML object and removes those that are
+	empty (or those whose children are all empty).
+*/
+/*
+
+	stripEmptyNodes(node, stripWhitespaceNodes, onlyDeleteTrailing): Recursively iterates through all descendant nodes
+        of an E4X XML object and removes those that are empty (or those whose children are all empty).
+
+	Source:  Mirth Support Forum  	
+    Author:  Nick Rupley
+	Date Modified: 3/2013
+
+	Arguments
+	---------
+		Required
+		--------
+			node:			          The node to iterate through.  If node is empty, it will not be removed from its parent.
+			stripWhitespaceNodes:	  If true, nodes that are not empty but only contain whitespace will be removed.
+			onlyDeleteTrailing:	      If true, only trailing nodes will actually be deleted.  For example: if a child
+                                        set has five nodes at the end which are all empty, all five will be removed.  However,
+                                        if the same five nodes are followed by a node which isn&apos;t empty, then those five nodes
+                                        will not be removed.  Instead, the nodes will simply have their inner text 
+                                        elements removed (if necessary).
+
+*/
+
+
+function stripEmptyNodes(node, stripWhitespaceNodes, onlyDeleteTrailing) {
+    var nonEmptyFound = false;
+    for (var childIndex = node.children().length()-1; childIndex &gt;= 0; childIndex--) {
+        var child = node.children()[childIndex];
+        stripEmptyNodes(child,stripWhitespaceNodes,onlyDeleteTrailing);
+        if (stripWhitespaceNodes &amp;&amp; !child.toString().trim() || !stripWhitespaceNodes &amp;&amp; !child.toString()) {
+            if (!nonEmptyFound || !onlyDeleteTrailing) {
+                delete node.children()[childIndex];
+            } else {
+                node.children()[childIndex] = new XML(&apos;&lt;&apos;+child.name().toString()+&apos;/&gt;&apos;);
+            }
+        } else {
+            nonEmptyFound = true;
+        }
+    }
+}</code>
+            </properties>
+          </codeTemplate>
+          <codeTemplate version="3.11.0">
+            <id>601e04ef-3507-42b2-aa8b-a325db950e52</id>
+            <name>Trim String</name>
+            <revision>1</revision>
+            <lastModified>
+              <time>1620244560365</time>
+              <timezone>America/Indianapolis</timezone>
+            </lastModified>
+            <contextSet>
+              <delegate>
+                <contextType>CHANNEL_ATTACHMENT</contextType>
+                <contextType>CHANNEL_BATCH</contextType>
+                <contextType>DESTINATION_DISPATCHER</contextType>
+                <contextType>CHANNEL_DEPLOY</contextType>
+                <contextType>CHANNEL_POSTPROCESSOR</contextType>
+                <contextType>SOURCE_RECEIVER</contextType>
+                <contextType>CHANNEL_PREPROCESSOR</contextType>
+                <contextType>SOURCE_FILTER_TRANSFORMER</contextType>
+                <contextType>GLOBAL_POSTPROCESSOR</contextType>
+                <contextType>CHANNEL_UNDEPLOY</contextType>
+                <contextType>DESTINATION_FILTER_TRANSFORMER</contextType>
+                <contextType>DESTINATION_RESPONSE_TRANSFORMER</contextType>
+              </delegate>
+            </contextSet>
+            <properties class="com.mirth.connect.model.codetemplates.BasicCodeTemplateProperties">
+              <type>FUNCTION</type>
+              <code>/**
+	Trim space from string.
+*/
+/*
+
+   trim(in_str)
+
+   Source:  Mirth Support Forum
+   Author:  upstart33 
+   Date modified: 2012 
+
+   Revision history:
+ 
+    Arguments
+    ---------
+        Required
+        --------
+           in_str          String to trim
+
+    Value returned is string trimmed of leading and trailing spaces.
+
+    called as:  var fname = trim(msg[&apos;patient_first&apos;].toString());
+*/
+
+function trim(in_str) {
+    return new String(in_str).replace(/^\s+|\s+$/g,&quot;&quot;);
+}</code>
+            </properties>
+          </codeTemplate>
+        </codeTemplates>
+      </codeTemplateLibrary>
+    </codeTemplateLibraries>
+  </exportData>
+</channel>
